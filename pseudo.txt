@@ -1,0 +1,8 @@
+User opens the website
+The submit button is disabled
+User inputs their birth year
+Submit button is enabled
+User clicks the submit button 
+The submit button fires off a query to the search API with the birth year as the query
+The API returns results
+If the first published year matches the query year, the user is shown the book title and author

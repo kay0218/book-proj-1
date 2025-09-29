@@ -11,6 +11,7 @@ export default async function runQuery(yearValue) {
     // Match results
     const matchedBooks = [];
     for (let data of json.docs) {
+      console.log(data)
       if (yearValue == data.first_publish_year) {
         matchedBooks.push({
           title: data.title,

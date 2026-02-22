@@ -1,3 +1,5 @@
+// This file holds the function to query the api and return the randomised book 
+
 export default async function runQuery(yearValue) {
   const url = "https://openlibrary.org/search.json?q=" + yearValue;
 

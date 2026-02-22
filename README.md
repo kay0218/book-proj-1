@@ -7,12 +7,12 @@ Run the development server using ```npm run dev ```
 Open [http://localhost:3000](http://localhost:3000) to see the result.
 
 ## To Do & Ideas
-- Switch to [isbndb](https://isbndb.com/isbndb-api-documentation-v2#examples)
-- Have book cover shown along with title and author
+- Have book cover shown along with title and author: https://openlibrary.org/dev/docs/api/covers
 - Add some sort of animation
 - Update favicon and title
-- Have a bubble button for the 'submit' action aka make it cute
+- Change the div (the one sitting within the 2nd div) that holds the input and submit box to be a white cloud
+- Update the bg to be cuter (a patterned one? interactive one?)
 
-## Learn More
-This is a basic app to get me used to working with API's.
+## What's it about? 
+This is a basic book recommendation app to get me used to working with API's and awkward colour palettes.
 

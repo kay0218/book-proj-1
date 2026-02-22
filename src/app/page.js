@@ -5,8 +5,7 @@ import runQuery from "../components/runQuery";
 
 export default function Home() {
   const [bookList, setBookList] = useState([]);
-  let randomTitle = ""
-  let randomAuthor = ""
+
 
 
   const handleClick = async () => {
@@ -25,13 +24,15 @@ export default function Home() {
   };
   
   async function setOnPage(results){
+    let randomTitle = ""
+    let randomAuthor = ""
     const randomBook = results[Math.floor(Math.random() * results.length)];
 
     let titleInputValue = document.getElementById("book-title")
     let authorInputValue = document.getElementById("book-author")
 
-    let randomTitle = randomBook.title
-    let randomAuthor = randomBook.author
+    randomTitle = randomBook.title
+    randomAuthor = randomBook.author
     
     console.log(randomTitle)
     console.log(randomAuthor)
@@ -48,8 +49,8 @@ export default function Home() {
         <label htmlFor="dateInput" id="dateInputValue"> Please enter your birth year! </label>
       </div>
       <div className="container">
-        <input type="text" id="dateInput" />
-        <button onClick={handleClick}> Give me a book! </button>
+          <input type="text" id="dateInput" />
+          <button onClick={handleClick} className="button"> Give me a book! </button>
       </div>
       <div className="parentC">
         <div className="childC">

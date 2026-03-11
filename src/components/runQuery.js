@@ -1,4 +1,4 @@
-// This file holds the function to query the api and return the randomised book 
+// This file holds the function to query the OpenLibrary's Search API and return a randomised book
 
 export default async function runQuery(yearValue) {
   const url = "https://openlibrary.org/search.json?q=" + yearValue;
@@ -13,7 +13,7 @@ export default async function runQuery(yearValue) {
     // Match results
     const matchedBooks = [];
     for (let data of json.docs) {
-      console.log(data)
+      console.log(data);
       if (yearValue == data.first_publish_year) {
         matchedBooks.push({
           title: data.title,

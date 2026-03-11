@@ -14,5 +14,5 @@ Open [http://localhost:3000](http://localhost:3000) to see the result.
 - Update the bg to be cuter (a patterned one? interactive one?)
 
 ## What's it about? 
-This is a basic book recommendation app to get me used to working with API's and awkward colour palettes.
+This is a basic book recommendation app to get me used to working with API's and awkward colour palettes. I've used the Open Library API to connect to. 
 

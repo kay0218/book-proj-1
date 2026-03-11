@@ -2,11 +2,10 @@
 
 import { useState } from "react";
 import runQuery from "../components/runQuery";
+import findCover from "@/components/findCover";
 
 export default function Home() {
   const [bookList, setBookList] = useState([]);
-
-
 
   const handleClick = async () => {
     const dateValue = document.getElementById("dateInput").value;
@@ -37,6 +36,8 @@ export default function Home() {
     console.log(randomTitle)
     console.log(randomAuthor)
 
+    let cover = findCover(randomTitle, randomAuthor)
+
     titleInputValue.innerText = randomTitle
     authorInputValue.innerText = randomAuthor
   }
@@ -53,6 +54,9 @@ export default function Home() {
           <button onClick={handleClick} className="button"> Give me a book! </button>
       </div>
       <div className="parentC">
+      <div className="childC">
+          <p id="book-cover"></p>
+        </div>
         <div className="childC">
           <p id="book-title"></p>
         </div>

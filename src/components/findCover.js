@@ -1,46 +1,28 @@
-// This file holds the function to find the related book cover using the OpenLibrary's cover API
+// This file holds the function to find the related book cover using the https://bookcover.longitood.com/ API
 
 export default async function findCover(title, author) {
-    console.log("find cover function")
+    let authorName = ""
+    let coverUrl = ""
 
-    console.log(title)
     const replacedTitle = title.replace(/ /g, "+");
-    console.log(replacedTitle)
 
-    for (let authorName in author) {
-        console.log(authorName[0].valueOf)
+    for (let [key, value] of Object.entries(author)) {
+        authorName = value
     }
-
-    console.log(author)
-    const replacedAuthor = author.replace(/ /g, "+");
-    console.log(replacedAuthor)
+    const replacedAuthor = authorName.replace(/ /g, "+");
 
     const url = "https://bookcover.longitood.com/bookcover?book_title=" + replacedTitle + "&author_name=" + replacedAuthor;
-    console.log(url)
-
     try {
-      const response = await fetch(url);
+      const response = await fetch(url)
+      
       if (!response.ok) {
         throw new Error(`Response status: ${response.status}`);
       }
-    //   const json = await response.json();
-
-      console.log(response)
-  
-    //   // Match results
-    //   const matchedBooks = [];
-    //   for (let data of json.docs) {
-    //     console.log(data);
-    //     if (yearValue == data.first_publish_year) {
-    //       matchedBooks.push({
-    //         title: data.title,
-    //         author: data.author_name,
-    //         key: data.key,
-    //       });
-    //     }
-    //   }
-  
-//       return matchedBooks;
+      const responseUrl = await response.json()
+      for (let [key, value] of Object.entries(responseUrl)) {
+        coverUrl = value
+    }
+      return coverUrl
     } catch (error) {
       console.error(error);
       throw error;

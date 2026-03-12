@@ -5,6 +5,7 @@ import runQuery from "../components/runQuery";
 import findCover from "@/components/findCover";
 
 export default function Home() {
+  let coverValue = ""
   const [bookList, setBookList] = useState([]);
 
   const handleClick = async () => {
@@ -29,17 +30,16 @@ export default function Home() {
 
     let titleInputValue = document.getElementById("book-title")
     let authorInputValue = document.getElementById("book-author")
+    let coverInputValue = document.getElementById("book-cover")
 
     randomTitle = randomBook.title
     randomAuthor = randomBook.author
-    
-    console.log(randomTitle)
-    console.log(randomAuthor)
 
-    let cover = findCover(randomTitle, randomAuthor)
+    let cover = await findCover(randomTitle, randomAuthor)
 
     titleInputValue.innerText = randomTitle
     authorInputValue.innerText = randomAuthor
+    coverInputValue.src = cover
   }
 
   
@@ -55,7 +55,7 @@ export default function Home() {
       </div>
       <div className="parentC">
       <div className="childC">
-          <p id="book-cover"></p>
+          <img id="book-cover" height="200px"/>
         </div>
         <div className="childC">
           <p id="book-title"></p>

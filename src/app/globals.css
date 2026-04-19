@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Chewy&display=swap");
 
 :root {
-  --background:  #dbaca2 ;
-  --foreground: #A2d1db;
+  --background: #dbaca2;
+  --foreground: #a2d1db;
   --text-shadow: 2px 2px var(--accent-text);
-  --accent: #F4DD85;
-  --accent-text: #4D4E66;
+  --accent: #f4dd85;
+  --accent-text: #4d4e66;
 }
 
 @theme inline {
@@ -29,30 +29,49 @@ body {
   text-shadow: var(--text-shadow);
 }
 
+#particles-js {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.app {
+  position: relative;
+}
+
+.ui {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 15vh;
+  text-align: center;
+}
+
 .parentC {
   display: flex;
   flex-direction: row;
   height: 200px;
-
-  border: 2px solid red;
-  border-radius: 0.5em;
 }
 
 .childC {
-  border: 2px solid rgb(75 70 74);
-  border-radius: 0.5em;
-  width: 50%;
+  width: fit-content;
   align-content: center;
   justify-items: center;
   font-size: 200%;
   color: var(--accent);
+  text-align: center;
+}
+
+.coverContainer {
+  display: flex;
+  justify-content: center;
 }
 
 .container {
-  border: 2px solid rgb(75 70 74);
-  border-radius: 0.5em;
-
-
   height: 200px;
   display: flex;
   align-items: center;
@@ -60,6 +79,7 @@ body {
 }
 
 #dateInputValue {
+  position: relative;
   padding: 20px;
   width: inherit;
   font: 300% Chewy;
@@ -76,8 +96,8 @@ body {
 .button {
   background-color: var(--accent);
   font: 150% Chewy;
-  padding:20px;
-  min-height:30px; 
+  padding: 20px;
+  min-height: 30px;
   min-width: 120px;
   color: var(--foreground);
   text-shadow: var(--accent-text);

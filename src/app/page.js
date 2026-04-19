@@ -1,10 +1,25 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import runQuery from "../components/runQuery";
 import findCover from "@/components/findCover";
 
 export default function Home() {
+  useEffect(() => {
+    const initParticles = () => {
+      if (window.particlesJS) {
+        window.particlesJS.load(
+          'particles-js',
+          '/assets/particles.json'
+        );
+      } else {
+        setTimeout(initParticles, 100);
+      }
+    };
+  
+    initParticles();
+  }, []);
+
   let coverValue = ""
   const [bookList, setBookList] = useState([]);
 
@@ -42,28 +57,38 @@ export default function Home() {
     coverInputValue.src = cover
   }
 
-  
-
   return (
-    <div>
-      <div className="container">
-        <label htmlFor="dateInput" id="dateInputValue"> Please enter your birth year! </label>
-      </div>
-      <div className="container">
+    <div className="app">
+      <div id="particles-js"></div>
+  
+      <div className="ui">
+        <div className="container">
+          <label htmlFor="dateInput" id="dateInputValue">
+            Please enter your birth year!
+          </label>
+        </div>
+  
+        <div className="container">
           <input type="text" id="dateInput" />
-          <button onClick={handleClick} className="button"> Give me a book! </button>
-      </div>
-      <div className="parentC">
-      <div className="childC">
-          <img id="book-cover" height="200px"/>
+          <button onClick={handleClick} className="button">
+            Give me a book!
+          </button>
         </div>
-        <div className="childC">
-          <p id="book-title"></p>
-        </div>
-        <div className="childC">
-          <p id="book-author"></p>
+  
+        <div className="parentC">
+          <div className="childC coverContainer">
+            <img id="book-cover" height="200px" />
+          </div>
+  
+          <div className="childC">
+            <p id="book-title"></p>
+          </div>
+  
+          <div className="childC">
+            <p id="book-author"></p>
+          </div>
         </div>
       </div>
     </div>
-  );
+  )
 }

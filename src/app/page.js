@@ -78,7 +78,7 @@ export default function Home() {
       <div className="ui">
         <div className="container">
           <label htmlFor="dateInput" id="dateInputValue">
-            Don't know what to read? <br/>
+            Don&apos;t know what to read? <br/>
             Pick a genre & enter your birth year <br/>
             to get a book recommended
           </label>

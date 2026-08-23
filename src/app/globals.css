@@ -55,6 +55,8 @@ body {
   display: flex;
   flex-direction: row;
   height: 200px;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .childC {
@@ -107,4 +109,10 @@ body {
 
 .button:hover {
   cursor: pointer;
+  box-shadow: 0px 5px 30px 0px #4d4e66;
+}
+
+.button:active {
+  cursor:pointer;
+  color: var(--accent-text);
 }

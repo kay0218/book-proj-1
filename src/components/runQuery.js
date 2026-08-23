@@ -1,7 +1,5 @@
-// This file holds the function to query the OpenLibrary's Search API and return a randomised book
-
-export default async function runQuery(yearValue) {
-  const url = "https://openlibrary.org/search.json?q=" + yearValue;
+export default async function runQuery(yearValue, genreValue) {
+  const url = `https://openlibrary.org/subjects/${genreValue}.json?published_in=${yearValue}-${yearValue}&limit=1000`;
 
   try {
     const response = await fetch(url);
@@ -10,17 +8,10 @@ export default async function runQuery(yearValue) {
     }
     const json = await response.json();
 
-    // Match results
-    const matchedBooks = [];
-    for (let data of json.docs) {
-      console.log(data);
-      if (yearValue == data.first_publish_year) {
-        matchedBooks.push({
-          title: data.title,
-          author: data.author_name,
-        });
-      }
-    }
+    const matchedBooks = json.works.map((work) => ({
+      title: work.title,
+      author: work.authors?.[0]?.name,
+    }));
 
     return matchedBooks;
   } catch (error) {

@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## To Do & Ideas
 - Add header & footer
+- Header needs to include little info box of why i created this
+- Header or footer needs to include link back to portfolio site
 - Maybe rework the cover api
 - Rework the active state of the submit button
 

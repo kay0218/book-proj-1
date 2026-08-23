@@ -1,7 +1,7 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## To Do & Ideas
-- Add header & footer
+- Add header or footer
 - Header needs to include little info box of why i created this
 - Header or footer needs to include link back to portfolio site
 - Maybe rework the cover api

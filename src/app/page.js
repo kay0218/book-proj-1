@@ -5,12 +5,14 @@ import runQuery from "../components/runQuery";
 import findCover from "@/components/findCover";
 
 export default function Home() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
   useEffect(() => {
     const initParticles = () => {
       if (window.particlesJS) {
         window.particlesJS.load(
           'particles-js',
-          '/public/assets/particles.json'
+          `${basePath}/assets/particles.json`
         );
       } else {
         setTimeout(initParticles, 100);

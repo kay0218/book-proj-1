@@ -23,23 +23,32 @@ export default function Home() {
   }, []);
 
   let coverValue = ""
-  const [bookList, setBookList] = useState([]);
+  const [loading, setLoading] = useState(false);
+
 
   const handleClick = async () => {
     const dateValue = document.getElementById("dateInput").value;
     const splitValue = dateValue.split("-");
     const yearValue = splitValue[0];
+    const genreValue = document.getElementById("genreSelect").value;
+
+    setLoading(true);
 
     try { 
-      let results = await runQuery(yearValue, "fantasy");
-      setBookList(results);
+      let results = await runQuery(yearValue, genreValue);
+      await setOnPage(results);
     } catch (e) {
       console.error(e);
+    } finally {
+      setLoading(false); 
     }
-    setOnPage(bookList)
   };
   
   async function setOnPage(results){
+    if (!results || results.length === 0) {
+      return "No books found"; 
+    }
+
     let randomTitle = ""
     let randomAuthor = ""
     let byWord = ""
@@ -69,16 +78,27 @@ export default function Home() {
       <div className="ui">
         <div className="container">
           <label htmlFor="dateInput" id="dateInputValue">
-            Please enter your birth year!
+            Don't know what to read? <br/>
+            Pick a genre & enter your birth year <br/>
+            to get a book recommended
           </label>
         </div>
   
         <div className="container">
-          <input type="text" id="dateInput" />
-          <button onClick={handleClick} className="button">
-            Give me a book!
+        <select name="genres" id="genreSelect">
+          <option value="">--Genre Selector--</option>
+          <option value="romance">Romance</option>
+          <option value="fantasy">Fantasy</option>
+          <option value="horror">Horror</option>
+          <option value="mystery">Mystery</option>
+        </select>
+          <input type="text" id="dateInput" placeholder="Enter your year"/>
+          <button onClick={handleClick} className="button" disabled={loading}>
+            {loading ? "Loading..." : "Give me a book!"}
           </button>
         </div>
+
+        {loading && <p className="childC">Fetching your book...</p>}
   
         <div className="parentC">
           {/* <div className="childC coverContainer">

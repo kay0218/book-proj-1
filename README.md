@@ -1,8 +1,9 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## To Do & Ideas
-- Change the div (the one sitting within the 2nd div) that holds the input and submit box to be a white cloud
-- Fix site so it deploys properly and particles and api work
+- Add header & footer
+- Maybe rework the cover api
+- Rework the active state of the submit button
 
 ## What's it about? 
 This is a basic book recommendation app to get me working with API's and awkward colour palettes.

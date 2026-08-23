@@ -10,7 +10,7 @@ export default function Home() {
       if (window.particlesJS) {
         window.particlesJS.load(
           'particles-js',
-          '/assets/particles.json'
+          '/public/assets/particles.json'
         );
       } else {
         setTimeout(initParticles, 100);
